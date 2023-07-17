@@ -1,0 +1,9 @@
+export const LOGIN = "login";
+export const REGISTER = "register";
+export const SIGN_IN = "Sign in";
+export const REGISTER_HERE = "Register here";
+export const EMAIL_ADDRESS = "Email address";
+export const PASSWORD = "Password";
+export const SIGN_OUT = "Sign out";
+export const SIGN_IN_FORM_LABEL = "Already Have an Account";
+export const REGISTER_FORM_LABEL = " Create a New Account";
