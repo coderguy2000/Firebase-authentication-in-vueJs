@@ -12,6 +12,7 @@ import { SIGN_OUT } from "../constants/constants";
 
 let currentUserEmail = ref("");
 let currentUserUserName = ref("");
+let loading = ref(true);
 
 async function signout() {
   try {
@@ -23,10 +24,12 @@ async function signout() {
 }
 
 onAuthStateChanged(auth, (currentUser) => {
+  loading.value = true;
   updateCreds(currentUser);
 
   currentUserEmail.value = getEmail?.value;
   currentUserUserName.value = getUsername?.value;
+  loading.value = false;
 
   if (!currentUserEmail.value) {
     router.push("/signIn");
@@ -120,7 +123,7 @@ onAuthStateChanged(auth, (currentUser) => {
         >
           <div class="flex flex-col-reverse">
             <dt class="text-base leading-7 text-gray-300">
-              {{ currentUserUserName }}
+              {{ loading ? "Loading..." : currentUserUserName }}
             </dt>
             <dd class="text-2xl font-bold leading-9 tracking-tight text-white">
               Username
@@ -128,7 +131,7 @@ onAuthStateChanged(auth, (currentUser) => {
           </div>
           <div class="flex flex-col-reverse">
             <dt class="text-base leading-7 text-gray-300">
-              {{ currentUserEmail }}
+              {{ loading ? "Loading..." : currentUserEmail }}
             </dt>
             <dd class="text-2xl font-bold leading-9 tracking-tight text-white">
               Email
