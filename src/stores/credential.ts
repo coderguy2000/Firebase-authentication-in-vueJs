@@ -20,8 +20,8 @@ export const useloginUserCredentialStore = defineStore({
   },
   actions: {
     updateCreds(currentUser: any) {
-      this.currentUserEmail = currentUser.email;
-      this.currentUserUsername = currentUser.displayName;
+      this.currentUserEmail = currentUser?.email;
+      this.currentUserUsername = currentUser?.displayName;
     },
   },
 });
